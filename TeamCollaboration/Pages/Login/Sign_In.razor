@@ -1,0 +1,65 @@
+@page "/sign_in"
+@inject NavigationManager NavigationManager
+
+<div class="row-layout sign-in-container">
+    <div class="row-layout left">
+        <div class="column-layout group">
+            <div class="row-layout group_1">
+                <img src="assets/slingshot-icon.svg" class="image" />
+                <p class="typography__subtitle-2 text">
+                    TEAM COLLABORATION
+                </p>
+            </div>
+            <h5 class="h5">
+                Sign in
+            </h5>
+            <div class="row-layout group_2">
+                <IgbButton Size="SizableComponentSize.Large" class="button" sign_in-scope>
+                    <span class="material-icons">
+                        donut_small
+                    </span>
+                    <span>Google</span>
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+                <IgbButton Size="SizableComponentSize.Large" class="button" sign_in-scope>
+                    <span class="material-icons">
+                        dashboard
+                    </span>
+                    <span>Microsoft</span>
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+                <IgbButton Size="SizableComponentSize.Large" class="button" sign_in-scope>
+                    <span class="material-icons">
+                        copyright
+                    </span>
+                    <span>Apple</span>
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+            </div>
+            <IgbInput Label="Email / username" Outlined="true" class="input" sign_in-scope></IgbInput>
+            <IgbInput DisplayType="InputType.Password" Label="Password" Outlined="true" class="input" sign_in-scope></IgbInput>
+            <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" class="checkbox" sign_in-scope>
+                Keep me signed in
+            </IgbCheckbox>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("master_view"))" class="button_1" sign_in-scope>
+                Sign in
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <a class="typography__body-2 hyperlink">
+                Forgot your account?
+            </a>
+            <IgbButton Variant="ButtonVariant.Outlined" Size="SizableComponentSize.Large" @onclick="@(e => Navigate(""))" class="button_1" sign_in-scope>
+                Create New Account
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}

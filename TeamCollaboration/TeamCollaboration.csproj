@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>TeamCollaboration</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IgniteUI.Blazor" Version="23.1.37" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Shared/Login.razor.css" CssScope="login-scope" />
+    <None Update="Pages/Login/Create_Account.razor.css" CssScope="create_account-scope" />
+    <None Update="Pages/Login/Sign_In.razor.css" CssScope="sign_in-scope" />
+    <None Update="Shared/Master_View.razor.css" CssScope="master_view-scope" />
+    <None Update="Pages/Master_View/My_Tasks.razor.css" CssScope="my_tasks-scope" />
+    <None Update="Pages/Master_View/Dashboards.razor.css" CssScope="dashboards-scope" />
+    <None Update="Pages/Master_View/Backlog.razor.css" CssScope="backlog-scope" />
+    <None Update="Pages/Master_View_1.razor.css" CssScope="master_view_1-scope" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,402 @@
+@page "/master_view"
+
+<div class="row-layout my-tasks-container">
+    <div class="column-layout left-nav">
+        <h6 class="content_2">
+            Tasks
+        </h6>
+        <div class="row-layout group">
+            <p class="typography__body-1 text">
+                VD Team
+            </p>
+            <IgbBadge class="badge" my_tasks-scope>
+                11
+            </IgbBadge>
+        </div>
+        <div class="column-layout group_1">
+            <p class="typography__subtitle-2 content_2">
+                LISTS
+            </p>
+            <IgbList class="list" my_tasks-scope>
+                <IgbListItem>
+                    <div slot="title">General</div>
+                    <span slot="end" class="material-icons icon">
+                        more_vert
+                    </span>
+                </IgbListItem>
+                <IgbListItem>
+                    <div slot="title">App Builder</div>
+                    <span slot="end" class="material-icons icon">
+                        more_vert
+                    </span>
+                </IgbListItem>
+                <IgbListItem>
+                    <div slot="title">Indigo.Design</div>
+                    <span slot="end" class="material-icons icon">
+                        more_vert
+                    </span>
+                </IgbListItem>
+                <IgbListItem>
+                    <div slot="title">Marketing</div>
+                    <span slot="end" class="material-icons icon">
+                        more_vert
+                    </span>
+                </IgbListItem>
+                <IgbListItem>
+                    <div slot="title">Customer Portal</div>
+                    <span slot="end" class="material-icons icon">
+                        more_vert
+                    </span>
+                </IgbListItem>
+            </IgbList>
+            <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button" my_tasks-scope>
+                <span class="material-icons">
+                    add
+                </span>
+                <span>FILTER</span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div class="column-layout group_1">
+            <p class="typography__subtitle-2 content_2">
+                FILTERS
+            </p>
+            <IgbList class="list" my_tasks-scope>
+                <IgbListItem>
+                    <div slot="title">Due this Week</div>
+                    <span slot="end" class="material-icons icon">
+                        more_vert
+                    </span>
+                </IgbListItem>
+                <IgbListItem>
+                    <div slot="title">Overdue</div>
+                    <span slot="end" class="material-icons icon">
+                        more_vert
+                    </span>
+                </IgbListItem>
+            </IgbList>
+            <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button" my_tasks-scope>
+                <span class="material-icons">
+                    add
+                </span>
+                <span>FILTER</span>
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+    </div>
+    <div class="row-layout right-container">
+        <div class="column-layout content">
+            <div class="row-layout content-toolbar">
+                <h5 class="h5">
+                    VD Team
+                </h5>
+                <div class="row-layout group_2">
+                    <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" my_tasks-scope>
+                        <span class="material-icons">
+                            list
+                        </span>
+                        <span>LIST</span>
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                    <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" my_tasks-scope>
+                        <span class="material-icons">
+                            calendar_view_day
+                        </span>
+                        <span>SECTION</span>
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                    <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" my_tasks-scope>
+                        <span class="material-icons">
+                            dns
+                        </span>
+                        <span>FIELDS</span>
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                    <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" my_tasks-scope>
+                        <span class="material-icons">
+                            filter_list
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbIconButton>
+                    <IgbIconButton Variant="IconButtonVariant.Flat" class="icon-button" my_tasks-scope>
+                        <span class="material-icons">
+                            more_vert
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbIconButton>
+                </div>
+            </div>
+            <div class="row-layout group_3">
+                <div class="column-layout group_4">
+                    <div class="column-layout group_5">
+                        <div class="column-layout group_6">
+                            <h6 class="content_2">
+                                Developer Tools
+                            </h6>
+                            <p class="typography__subtitle-2 content_2">
+                                Release 2020.2
+                            </p>
+                        </div>
+                        <IgbList class="list_1" my_tasks-scope>
+                            <IgbListItem @onclick="@(e => _editTaskDialog!.ToggleAsync())">
+                                <IgbAvatar Src="assets/Avatar1.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">Download any Ultimate product and take notes on the download process</div>
+                                <div slot="subtitle">Product download process experience</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem @onclick="@(e => _editTaskDialog!.ToggleAsync())">
+                                <IgbAvatar Src="assets/Avatar2.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">Report about the downloaded ultimate products to the Marketing Team</div>
+                                <div slot="subtitle">Product download process experience</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" @onclick="@(e => _newTaskDialog1!.ToggleAsync())" class="button" my_tasks-scope>
+                            <span class="material-icons">
+                                add
+                            </span>
+                            <span>task</span>
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                    </div>
+                    <div class="column-layout group_5">
+                        <div class="column-layout group_7">
+                            <h6 class="content_2">
+                                App Builder
+                            </h6>
+                            <p class="typography__subtitle-2 content_2">
+                                September release - Sprint 1
+                            </p>
+                        </div>
+                        <IgbList class="list_1" my_tasks-scope>
+                            <IgbListItem>
+                                <IgbAvatar Src="assets/Avatar3.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">Research new sample app</div>
+                                <div slot="subtitle">New sample application</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar Src="assets/Avatar2.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">Create visual design for new sample app</div>
+                                <div slot="subtitle">New sample application</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar Src="assets/Avatar5.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">Implementation for new sample app</div>
+                                <div slot="subtitle">New sample application</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar Src="assets/Avatar6.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">Tweaks in List component</div>
+                                <div slot="subtitle">App Builder UI Components</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar Src="assets/Avatar1.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">QE of new App Builder components</div>
+                                <div slot="subtitle">App Builder UI Components</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <IgbAvatar Src="assets/Avatar4.png" slot="start" Shape="AvatarShape.Circle"></IgbAvatar>
+                                <div slot="title">Implementation of Chips component</div>
+                                <div slot="subtitle">App Builder UI Components</div>
+                                <span slot="end" class="material-icons icon">
+                                    edit
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                        <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" @onclick="@(e => _newTaskDialog1!.ToggleAsync())" class="button" my_tasks-scope>
+                            <span class="material-icons">
+                                add
+                            </span>
+                            <span>task</span>
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                    </div>
+                </div>
+                <div class="column-layout group_8">
+                    <IgbCalendar HideHeader="false" class="content_1" my_tasks-scope></IgbCalendar>
+                    <div class="column-layout group_5">
+                        <h6 class="content_2">
+                            Release Calendar
+                        </h6>
+                        <IgbList class="list" my_tasks-scope>
+                            <IgbListItem>
+                                <div slot="title">App Builder</div>
+                                <div slot="subtitle">Product download process experience</div>
+                                <span slot="end" class="material-icons icon_1">
+                                    check_circle
+                                </span>
+                            </IgbListItem>
+                            <IgbListItem>
+                                <div slot="title">Ultimate Products Review</div>
+                                <div slot="subtitle">08.13.2020</div>
+                                <span slot="end" class="material-icons icon_2">
+                                    error
+                                </span>
+                            </IgbListItem>
+                        </IgbList>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <IgbDialog CloseOnOutsideClick="true" KeepOpenOnEscape="false" @ref="_editTaskDialog">
+        <h5 slot="title">
+            Edit Task
+        </h5>
+        <div class="column-layout group_9">
+            <IgbInput @bind-value="_value" Label="Task Name" Outlined="false" class="input" my_tasks-scope></IgbInput>
+            <div class="row-layout group_10">
+                <span class="material-icons icon_3">
+                    people
+                </span>
+                <p class="typography__body-1 text_1">
+                    Assigned to:
+                </p>
+                <IgbChip Size="SizableComponentSize.Large" class="content_1" my_tasks-scope>
+                    <span slot="suffix">
+                        <span class="material-icons icon_4">
+                            clear
+                        </span>
+                    </span>
+                    Name Surname
+                </IgbChip>
+            </div>
+            <span class="textarea">Textarea not yet available in Blazor</span>
+            <div class="row-layout group_11">
+                <div class="row-layout group_12">
+                    <div class="row-layout group_13">
+                        <span class="material-icons icon_4">
+                            attach_file
+                        </span>
+                        <IgbChip Size="SizableComponentSize.Large" class="content_1" my_tasks-scope>
+                            <span slot="suffix">
+                                <span class="material-icons icon_4">
+                                    clear
+                                </span>
+                            </span>
+                            FileName
+                        </IgbChip>
+                        <IgbChip Size="SizableComponentSize.Large" class="content_1" my_tasks-scope>
+                            <span slot="suffix">
+                                <span class="material-icons icon_4">
+                                    clear
+                                </span>
+                            </span>
+                            FileName
+                        </IgbChip>
+                    </div>
+                    <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" my_tasks-scope>
+                        Add Attachment
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                </div>
+                <div class="row-layout group_13">
+                    <span class="material-icons icon_4">
+                        access_time
+                    </span>
+                    <p class="typography__body-1 content_2">
+                        Status
+                    </p>
+                    <IgbBadge Variant="BadgeVariant.Success" class="badge" my_tasks-scope>
+                        IN PROGRESS
+                    </IgbBadge>
+                </div>
+            </div>
+            <div class="row-layout group_14">
+                <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" @onclick="@(e => _editTaskDialog!.ToggleAsync())" class="button_1" my_tasks-scope>
+                    CANCEL
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+                <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => _editTaskDialog!.ToggleAsync())" class="button_1" my_tasks-scope>
+                    UPDATE
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+            </div>
+        </div>
+        <div slot="footer"></div>
+    </IgbDialog>
+    <IgbDialog CloseOnOutsideClick="true" KeepOpenOnEscape="false" @ref="_newTaskDialog1">
+        <h5 slot="title">
+            New Task
+        </h5>
+        <div class="row-layout group_7">
+            <div class="column-layout group_15">
+                <IgbInput Label="Task Name" Outlined="false" class="input" my_tasks-scope></IgbInput>
+                <div class="row-layout group_16">
+                    <span class="material-icons icon_5">
+                        people
+                    </span>
+                    <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" my_tasks-scope>
+                        ASSIGN
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                </div>
+                <span class="textarea">Textarea not yet available in Blazor</span>
+                <div class="row-layout group_11">
+                    <div class="row-layout group_13">
+                        <span class="material-icons icon_4">
+                            attach_file
+                        </span>
+                        <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" my_tasks-scope>
+                            Add Attachment
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                    </div>
+                    <div class="row-layout group_13">
+                        <span class="material-icons icon_4">
+                            access_time
+                        </span>
+                        <p class="typography__body-1 content_2">
+                            Status
+                        </p>
+                        <IgbBadge class="badge" my_tasks-scope>
+                            TO DO
+                        </IgbBadge>
+                    </div>
+                </div>
+                <div class="row-layout group_14">
+                    <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" @onclick="@(e => _newTaskDialog1!.ToggleAsync())" class="button_1" my_tasks-scope>
+                        CANCEL
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                    <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => _newTaskDialog1!.ToggleAsync())" class="button_1" my_tasks-scope>
+                        CREATE
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                </div>
+            </div>
+        </div>
+        <div slot="footer"></div>
+    </IgbDialog>
+    <IgbButton Variant="ButtonVariant.Fab" Size="SizableComponentSize.Large" @onclick="@(e => _newTaskDialog1!.ToggleAsync())" class="button_2" my_tasks-scope>
+        <span class="material-icons">
+            add
+        </span>
+        <IgbRipple></IgbRipple>
+    </IgbButton>
+</div>
+
+@code {
+    private IgbDialog? _editTaskDialog;
+    private string _value = "This is the Task Name";
+    private IgbDialog? _newTaskDialog1;
+}

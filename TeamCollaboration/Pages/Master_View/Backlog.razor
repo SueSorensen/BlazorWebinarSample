@@ -1,0 +1,210 @@
+@page "/master_view/backlog"
+@using Northwind
+@using Models.Northwind
+@inject INorthwindService northwindService
+
+<div class="row-layout backlog-container">
+    <div class="column-layout left-nav">
+        <h6 class="h6">
+            Backlog
+        </h6>
+        <IgbList class="list" backlog-scope>
+            <IgbListHeader>INDIGO.DESIGN</IgbListHeader>
+            <IgbListItem>
+                <IgbAvatar slot="start" class="avatar" backlog-scope>
+                    <span class="material-icons">
+                        dashboard
+                    </span>
+                </IgbAvatar>
+                <div slot="title">Growth Hacking</div>
+            </IgbListItem>
+            <IgbListItem>
+                <IgbAvatar slot="start" class="avatar_1" backlog-scope>
+                    <span class="material-icons">
+                        dashboard
+                    </span>
+                </IgbAvatar>
+                <div slot="title">Public Preview</div>
+            </IgbListItem>
+            <IgbListItem>
+                <IgbAvatar slot="start" class="avatar_2" backlog-scope>
+                    <span class="material-icons">
+                        dashboard
+                    </span>
+                </IgbAvatar>
+                <div slot="title">UX Feedback</div>
+            </IgbListItem>
+        </IgbList>
+        <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button" backlog-scope>
+            <span class="material-icons">
+                add
+            </span>
+            <span>ADD NEW PROJECT</span>
+            <IgbRipple></IgbRipple>
+        </IgbButton>
+    </div>
+    <div class="row-layout right-container">
+        <div class="column-layout content">
+            <div class="row-layout content-toolbar">
+                <h5 class="h5">
+                    Growth Hacking
+                </h5>
+                <div class="row-layout group">
+                    <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" backlog-scope>
+                        <span class="material-icons">
+                            settings
+                        </span>
+                        <span>Settings</span>
+                        <IgbRipple></IgbRipple>
+                    </IgbButton>
+                    <IgbIconButton Variant="IconButtonVariant.Flat" @onclick="@ToggleGroupVisible" class="icon-button" backlog-scope>
+                        <span class="material-icons">
+                            filter_list
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbIconButton>
+                </div>
+            </div>
+            @if (_groupVisible)
+            {
+                <div class="row-layout filters">
+                    <div class="row-layout group_1">
+                        <IgbInput Label="Filter by keyword" Outlined="false" class="input" backlog-scope></IgbInput>
+                    </div>
+                    <div class="row-layout group_2">
+                        <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" backlog-scope>
+                            <span>Assigned to</span>
+                            <span class="material-icons">
+                                keyboard_arrow_down
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                        <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" backlog-scope>
+                            <span>Iteration</span>
+                            <span class="material-icons">
+                                keyboard_arrow_down
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                        <IgbButton Variant="ButtonVariant.Flat" Size="SizableComponentSize.Large" class="button_1" backlog-scope>
+                            <span>Area</span>
+                            <span class="material-icons">
+                                keyboard_arrow_down
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                        <IgbIconButton Variant="IconButtonVariant.Flat" @onclick="@ToggleGroupVisible" class="icon-button_1" backlog-scope>
+                            <span class="material-icons">
+                                close
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbIconButton>
+                    </div>
+                </div>
+            }
+            <IgbTabs class="tabs" backlog-scope>
+                <IgbTab Selected="true">
+                    <span>Q1</span>
+                </IgbTab>
+                <IgbTabPanel class="column-layout tab-item-content" backlog-scope>
+                    <IgbGrid Data="northwindOrders" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid" backlog-scope>
+                        <IgbColumn Field="OrderID" DataType="GridColumnDataType.Number" Header="orderID" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="CustomerID" DataType="GridColumnDataType.String" Header="customerID" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="OrderDate" DataType="GridColumnDataType.Date" Header="orderDate" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="RequiredDate" DataType="GridColumnDataType.Date" Header="requiredDate" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShippedDate" DataType="GridColumnDataType.Date" Header="shippedDate" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShipVia" DataType="GridColumnDataType.Number" Header="shipVia" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Freight" DataType="GridColumnDataType.Number" Header="freight" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShipName" DataType="GridColumnDataType.String" Header="shipName" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShipAddress.Street" DataType="GridColumnDataType.String" Header="street" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShipAddress.City" DataType="GridColumnDataType.String" Header="city" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShipAddress.Region" DataType="GridColumnDataType.String" Header="region" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShipAddress.PostalCode" DataType="GridColumnDataType.String" Header="postalCode" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ShipAddress.Country" DataType="GridColumnDataType.String" Header="country" Sortable="true" Selectable="false"></IgbColumn>
+                    </IgbGrid>
+                </IgbTabPanel>
+                <IgbTab Disabled="true">
+                    <span>Q2</span>
+                </IgbTab>
+                <IgbTabPanel class="row-layout tab-item-content" backlog-scope>
+                    <IgbGrid Data="northwindCustomers" PrimaryKey="CustomerID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid_1" backlog-scope>
+                        <IgbColumn Field="CustomerID" DataType="GridColumnDataType.String" Header="customerID" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="CompanyName" DataType="GridColumnDataType.String" Header="companyName" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ContactName" DataType="GridColumnDataType.String" Header="contactName" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ContactTitle" DataType="GridColumnDataType.String" Header="contactTitle" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Sortable="true" Selectable="false"></IgbColumn>
+                    </IgbGrid>
+                </IgbTabPanel>
+                <IgbTab Disabled="true">
+                    <span>Q3</span>
+                </IgbTab>
+                <IgbTabPanel class="row-layout tab-item-content" backlog-scope>
+                    <IgbGrid Data="northwindEmployees" PrimaryKey="EmployeeID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid_1" backlog-scope>
+                        <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="LastName" DataType="GridColumnDataType.String" Header="lastName" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="FirstName" DataType="GridColumnDataType.String" Header="firstName" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Title" DataType="GridColumnDataType.String" Header="title" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="TitleOfCourtesy" DataType="GridColumnDataType.String" Header="titleOfCourtesy" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="BirthDate" DataType="GridColumnDataType.Date" Header="birthDate" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="HireDate" DataType="GridColumnDataType.Date" Header="hireDate" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ManagerID" DataType="GridColumnDataType.Number" Header="managerID" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Notes" DataType="GridColumnDataType.String" Header="notes" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="AvatarUrl" DataType="GridColumnDataType.String" Header="avatarUrl" Sortable="true" Selectable="false"></IgbColumn>
+                    </IgbGrid>
+                </IgbTabPanel>
+                <IgbTab Disabled="true">
+                    <span>Q4</span>
+                </IgbTab>
+                <IgbTabPanel class="row-layout tab-item-content" backlog-scope>
+                    <IgbGrid Data="northwindSuppliers" PrimaryKey="SupplierID" DisplayDensity="DisplayDensity.Cosy" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter" AutoGenerate="false" class="ig-typography grid_1" backlog-scope>
+                        <IgbColumn Field="SupplierID" DataType="GridColumnDataType.Number" Header="supplierID" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="CompanyName" DataType="GridColumnDataType.String" Header="companyName" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ContactName" DataType="GridColumnDataType.String" Header="contactName" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="ContactTitle" DataType="GridColumnDataType.String" Header="contactTitle" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Street" DataType="GridColumnDataType.String" Header="address street" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.City" DataType="GridColumnDataType.String" Header="address city" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Region" DataType="GridColumnDataType.String" Header="address region" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.PostalCode" DataType="GridColumnDataType.String" Header="address postalCode" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Country" DataType="GridColumnDataType.String" Header="address country" Sortable="true" Selectable="false"></IgbColumn>
+                        <IgbColumn Field="Address.Phone" DataType="GridColumnDataType.String" Header="address phone" Sortable="true" Selectable="false"></IgbColumn>
+                    </IgbGrid>
+                </IgbTabPanel>
+            </IgbTabs>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool _groupVisible = false;
+    private List<OrdersType> northwindOrders = new();
+    private List<CustomersType> northwindCustomers = new();
+    private List<EmployeesType> northwindEmployees = new();
+    private List<SuppliersType> northwindSuppliers = new();
+
+    private void ToggleGroupVisible()
+    {
+        _groupVisible = !_groupVisible;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        northwindOrders = await northwindService.GetOrders();
+        northwindCustomers = await northwindService.GetCustomers();
+        northwindEmployees = await northwindService.GetEmployees();
+        northwindSuppliers = await northwindService.GetSuppliers();
+
+        await base.OnInitializedAsync();
+    }
+}

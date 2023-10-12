@@ -1,0 +1,19 @@
+@page "/master_view_1"
+@using Financial
+@using Models.Financial
+@inject IFinancialService financialService
+
+<div class="row-layout master-view-1-container">
+    <IgbCategoryChart DataSource="financialBoxOfficeRevenue" ComputedPlotAreaMarginMode="ComputedPlotAreaMarginMode.Series" class="category-chart" master_view_1-scope></IgbCategoryChart>
+</div>
+
+@code {
+    private List<BoxOfficeRevenueType> financialBoxOfficeRevenue = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        financialBoxOfficeRevenue = await financialService.GetBoxOfficeRevenue();
+
+        await base.OnInitializedAsync();
+    }
+}
